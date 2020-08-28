@@ -8,9 +8,9 @@ import (
 )
 
 func main() {
-	if bd.CheckConnection() == 0 {
+	if bd.ChequeoBD() == 0 {
 		log.Fatal("no conection to database")
 		return
 	}
-	handlers.HandlerConnect()
+	handlers.Manejadores()
 }
