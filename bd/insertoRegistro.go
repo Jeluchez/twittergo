@@ -4,7 +4,6 @@ import (
 	"context"
 	"time"
 
-	"github.com/jeluchez/twittergo/bd"
 	"github.com/jeluchez/twittergo/models"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -18,7 +17,7 @@ func InsertoRegistro(u models.Usuario) (string, bool, error) {
 	db := MongoCN.Database("twitter")
 	col := db.Collection("usuarios")
 
-	u.Password, _ = bd.EncriptarPassword(u.Password)
+	u.Password, _ = EncriptarPassword(u.Password)
 
 	result, err := col.InsertOne(ctx, u)
 	if err != nil {
