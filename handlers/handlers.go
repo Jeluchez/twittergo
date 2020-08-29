@@ -7,12 +7,17 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
+
+	"github.com/jeluchez/twittergo/middlew"
+	"github.com/jeluchez/twittergo/routers"
 )
 
-// HandlerConnect pongo a escuchar al servidor
-func HandlerConnect() {
+// Manejadores pongo a escuchar al servidor
+func Manejadores() {
 	router := mux.NewRouter()
 
+	// handlers
+	router.HandleFunc("/registro", middlew.ChequeoBD(routers.Registro)).Methods("POST")
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
