@@ -21,7 +21,7 @@ func GeneroJWT(t models.Usuario) (string, error) {
 		"ubicacion":        t.Ubicacion,
 		"sitioweb":         t.SitioWeb,
 		"_id":              t.ID.Hex(),
-		"exp":              time.Now().Add(time.Hour * 24).Unix(),
+		"exp":              time.Now().Add(time.Hour * 300).Unix(),
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, payload)
