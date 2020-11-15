@@ -14,7 +14,7 @@ func ConsultoRelacion(t models.Relacion) (bool, error) {
 	defer cancel()
 
 	db := MongoCN.Database("twitter")
-	col := db.Collection("relacion")
+	col := db.Collection("relaciones")
 
 	condicion := bson.M{
 		"usuarioid":         t.UsuarioID,

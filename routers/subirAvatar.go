@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/ptilotta/twittor/bd"
-	"github.com/ptilotta/twittor/models"
+	"github.com/jeluchez/twittergo/bd"
+	"github.com/jeluchez/twittergo/models"
 )
 
 /*SubirAvatar sube el Avatar al servidor */
@@ -34,6 +34,7 @@ func SubirAvatar(w http.ResponseWriter, r *http.Request) {
 
 	usuario.Avatar = IDUsuario + "." + extension
 	status, err = bd.ModificoRegistro(usuario, IDUsuario)
+
 	if err != nil || status == false {
 		http.Error(w, "Error al grabar el avatar en la BD ! "+err.Error(), http.StatusBadRequest)
 		return

@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/ptilotta/twittor/bd"
-	"github.com/ptilotta/twittor/models"
+	"github.com/jeluchez/twittergo/bd"
+	"github.com/jeluchez/twittergo/models"
 )
 
 /*SubirBanner sube el Avatar al servidor */

@@ -1,6 +1,7 @@
 package routers
 
 import (
+	"encoding/json"
 	"net/http"
 
 	"github.com/jeluchez/twittergo/bd"
@@ -29,5 +30,15 @@ func AltaRelacion(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "No se ha logrado insertar la relación "+err.Error(), http.StatusBadRequest)
 		return
 	}
+	type JSONRes struct {
+		Status bool
+		Msg    string
+	}
+	response := JSONRes{true, "AltaRelacion"}
+
+	res, err := json.Marshal(response)
+	w.Header().Set("Content-Type", "application/json")
+
 	w.WriteHeader(http.StatusCreated)
+	w.Write(res)
 }

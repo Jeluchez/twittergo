@@ -28,7 +28,7 @@ func ConectarBD() *mongo.Client {
 		log.Fatal(err.Error())
 		return client
 	}
-	log.Println("success conection with the BD")
+	// log.Println("success conection with the BD")
 
 	return client
 }

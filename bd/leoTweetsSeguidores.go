@@ -14,7 +14,7 @@ func LeoTweetsSeguidores(ID string, pagina int) ([]models.DevuelvoTweetsSeguidor
 	defer cancel()
 
 	db := MongoCN.Database("twitter")
-	col := db.Collection("relacion")
+	col := db.Collection("relaciones")
 
 	skip := (pagina - 1) * 20
 

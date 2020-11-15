@@ -2,7 +2,6 @@ package bd
 
 import (
 	"context"
-	"fmt"
 	"time"
 
 	"github.com/jeluchez/twittergo/models"
@@ -14,8 +13,6 @@ func ChequeoYaExisteUsuario(email string) (models.Usuario, bool, string) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
-	fmt.Println("aqui llega")
-
 	db := MongoCN.Database("twitter")
 	col := db.Collection("usuarios")
 
@@ -24,7 +21,6 @@ func ChequeoYaExisteUsuario(email string) (models.Usuario, bool, string) {
 	var resultado models.Usuario
 
 	err := col.FindOne(ctx, condicion).Decode(&resultado)
-	fmt.Println(resultado)
 
 	ID := resultado.ID.Hex()
 	if err != nil {

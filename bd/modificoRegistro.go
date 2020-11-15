@@ -49,7 +49,9 @@ func ModificoRegistro(u models.Usuario, ID string) (bool, error) {
 	filtro := bson.M{"_id": bson.M{"$eq": objID}}
 
 	_, err := col.UpdateOne(ctx, filtro, updtString)
+
 	if err != nil {
+
 		return false, err
 	}
 
