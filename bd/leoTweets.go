@@ -2,10 +2,8 @@ package bd
 
 import (
 	"context"
-	"fmt"
 	"time"
 
-	dPrinf "github.com/jeluchez/twittergo/helpers"
 	"github.com/jeluchez/twittergo/models"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -33,9 +31,6 @@ func LeoTweets(ID string, pagina int64) ([]*models.DevuelvoTweets, bool) {
 	if err != nil {
 		return resultados, false
 	}
-	fmt.Printf("%v", cursor)
-
-	dPrinf.Log("cursor")
 
 	for cursor.Next(context.TODO()) {
 

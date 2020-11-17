@@ -45,5 +45,5 @@ func Manejadores() {
 	// dar permisos desde cualquier dispositivo remoto desde cualquier router(ruta)
 	handler := cors.AllowAll().Handler(router)
 
-	log.Fatal(http.ListenAndServe("127.0.0.1:"+PORT, handler))
+	log.Fatal(http.ListenAndServe(":"+PORT, handler))
 }
